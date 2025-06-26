@@ -12,6 +12,12 @@
   .form-control{
     border-radius: 25px;
   }
+
+  @media(max-width:767px){
+    .search_bar{
+      display: none;
+    }
+  }
 </style>
 
 
@@ -28,7 +34,7 @@
 
 </div>
           
-  <div class="navbar-nav ms-auto">
+  <div class="search_bar navbar-nav ms-auto">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search destinations" aria-label="Search"/>
       <button class="btn btn-outline-danger" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
@@ -41,15 +47,16 @@
 
         <div class="navbar-nav ms-auto">
           <a class="nav-link" href="/listings/new">Add new listing</a>
-          <% if(!currUser){ %>
+            <% if(!currUser){%>
               <b><a class="nav-link " href="/signup">Signup</a></b>
           <b><a class="nav-link" href="/login">Login</a></b>
-         <% } %>
-
-        <% if(currUser){ %>
-           <b> <a class="nav-link" href="/logout">Logout</a></b>
-         <% } %>
+          <%  }%>
+            
+           <% if(currUser){%>
         
+           <b> <a class="nav-link" href="/logout">Logout</a></b>
+      
+          <%  }%>
          
         </div>
       </div>

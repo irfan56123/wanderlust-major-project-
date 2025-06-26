@@ -4,18 +4,28 @@
 <style>
   #filters{
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    /* flex-wrap:wrap ; */
+    /* align-items: center; */
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     
   }
 
+  #filters::-webkit-scrollbar{
+    display: none;
+  }
+
   .filter{
-     
+     flex: 0 0 auto;
+     white-space: nowrap;
     text-align: center;
     margin-right: 2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     opacity: 0.8;
+
   }
   .filter:hover{
     opacity: 1;
@@ -40,6 +50,16 @@
     align-items: center;
     
   }
+
+  @media(max-width: 767px){
+    #filters {
+      margin: 0 8px;
+    }
+  }
+
+
+  
+
 </style>
     
       <div id="filters">
@@ -93,7 +113,7 @@
         </div>
        </div>
       </div>
-   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
+   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 ">
     <% for(let listing of allListings){%>
         <a href="/listings/<%= listing._id %>" class="listing-link">
             <div class="card col listing-card " >
